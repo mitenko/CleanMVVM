@@ -12,7 +12,7 @@
     * ui package for shared UI elements / theme
 * Domain Layer: Data Models, Repository Definitions (interfaces), Business Logic 
     * model 
-    * repository
+    * repository: contains the *interface definition* for the repositories
     * use_case
 * Data: All data sources are contained here
     * repository

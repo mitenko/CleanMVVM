@@ -1,0 +1,27 @@
+package com.example.cleanmvvm.domain.use_case.get_country_by_capital
+
+import com.example.cleanmvvm.common.Resource
+import com.example.cleanmvvm.domain.model.Country
+import com.example.cleanmvvm.domain.model.toCountry
+import com.example.cleanmvvm.domain.repository.CountryRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import okio.IOException
+import javax.inject.Inject
+import retrofit2.HttpException
+
+class GetCountryByCapitalUseCase @Inject constructor(
+    private val repository: CountryRepository
+) {
+    operator fun invoke(capital: String): Flow<Resource<List<Country>>> = flow {
+        try {
+            emit(Resource.Loading())
+            val countries = repository.getCountryByCapital(capital).map { it.toCountry() }
+            emit(Resource.Success(countries))
+        } catch (e: HttpException) {
+            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
+        } catch (e: IOException) {
+            emit(Resource.Error("Couldn't reach server. Check your internet connection."))
+        }
+    }
+}
