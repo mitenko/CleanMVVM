@@ -29,13 +29,15 @@ fun CountryDetailScreen(
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
+            Spacer(modifier = Modifier.height(15.dp))
             Text(
                 text = state.country?.name ?: "",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
+                color = Color.Black,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.headlineLarge
             )
             Spacer(modifier = Modifier.height(15.dp))
             Row(
@@ -47,11 +49,12 @@ fun CountryDetailScreen(
             ) {
                 Text(
                     text = "Capital",
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.headlineMedium
                 )
                 Text(
                     text = state.country?.capital ?: "",
-                    style = MaterialTheme.typography.bodyMedium
+                    color = Color.Black,
+                    style = MaterialTheme.typography.headlineMedium
                 )
             }
             Spacer(modifier = Modifier.height(15.dp))
@@ -64,11 +67,12 @@ fun CountryDetailScreen(
             ) {
                 Text(
                     text = "Region",
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.headlineMedium
                 )
                 Text(
                     text = state.country?.region ?: "",
-                    style = MaterialTheme.typography.bodyMedium
+                    color = Color.Black,
+                    style = MaterialTheme.typography.headlineMedium
                 )
             }
             Spacer(modifier = Modifier.height(15.dp))

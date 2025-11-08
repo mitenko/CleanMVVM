@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.cleanmvvm.common.Constants
 import com.example.cleanmvvm.presentation.Screen
 import com.example.cleanmvvm.presentation.country_detail.CountryDetailScreen
 import com.example.cleanmvvm.presentation.country_list.CountryListScreen
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity() {
                         CountryListScreen(navController = navController)
                     }
                     composable(
-                        Screen.DetailScreen.route + "/{countryCode}"
+                        Screen.DetailScreen.route + "/{${Constants.COUNTRY_CODE_KEY}}"
                     ) {
                         CountryDetailScreen()
                     }

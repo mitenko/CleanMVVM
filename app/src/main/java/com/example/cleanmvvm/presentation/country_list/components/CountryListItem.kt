@@ -29,8 +29,8 @@ fun CountryListItem(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "Name: ${country.name}. Capital: ${country.capital}. Code: ${country.alpha2Code}",
-            style = MaterialTheme.typography.bodyMedium,
+            text = country.name,
+            style = MaterialTheme.typography.headlineMedium,
             overflow = TextOverflow.Ellipsis
         )
         Icon(

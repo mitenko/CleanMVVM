@@ -25,7 +25,6 @@ fun CountryTag(tag: String) {
     ) {
         Text(
             text = tag,
-            color = Color.LightGray,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.bodySmall
         )
