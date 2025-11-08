@@ -1,10 +1,13 @@
-import org.gradle.kotlin.dsl.implementation
-
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.android) version "2.2.21"
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android") version "2.57.2"
+}
+
+hilt {
+    enableAggregatingTask = false
 }
 
 android {
@@ -72,10 +75,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
 
     //Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.37")
+    implementation("com.google.dagger:hilt-android:2.57.2")
+    kapt("com.google.dagger:hilt-android-compiler:2.57.2")
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.3.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
 
     // Retrofit
@@ -84,5 +87,6 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 
-
+    // Material Library
+    implementation("androidx.compose.material:material-icons-extended:1.0.0-alpha07")
 }

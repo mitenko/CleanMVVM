@@ -7,8 +7,8 @@ import com.example.cleanmvvm.domain.repository.CountryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okio.IOException
-import javax.inject.Inject
 import retrofit2.HttpException
+import javax.inject.Inject
 
 class GetCountryByCapitalUseCase @Inject constructor(
     private val repository: CountryRepository

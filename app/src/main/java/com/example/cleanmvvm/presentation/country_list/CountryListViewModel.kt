@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleanmvvm.common.Resource
 import com.example.cleanmvvm.domain.use_case.get_countries.GetCountriesUseCase
-import com.example.cleanmvvm.domain.use_case.get_country_by_capital.GetCountryByCapitalUseCase
-import com.example.cleanmvvm.presentation.search_screen.SearchScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

@@ -8,7 +8,7 @@
 
 # The project is divided into three MVVM / Clean Architecture Layers
 * Presentation Layer: For UI Elements 
-    * packages for screen
+    * packages for each screen
     * ui package for shared UI elements / theme
 * Domain Layer: Data Models, Repository Definitions (interfaces), Business Logic 
     * model 

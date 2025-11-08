@@ -11,37 +11,39 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.cleanmvvm.presentation.Screen
+import com.example.cleanmvvm.presentation.country_detail.CountryDetailScreen
+import com.example.cleanmvvm.presentation.country_list.CountryListScreen
 import com.example.cleanmvvm.presentation.ui.theme.CleanMVVMTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             CleanMVVMTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val navController = rememberNavController()
+                NavHost(
+                    navController = navController,
+                    startDestination = Screen.CountryListScreen.route
+                ) {
+                    composable(
+                        Screen.CountryListScreen.route
+                    ) {
+                        CountryListScreen(navController = navController)
+                    }
+                    composable(
+                        Screen.DetailScreen.route + "/{countryCode}"
+                    ) {
+                        CountryDetailScreen()
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CleanMVVMTheme {
-        Greeting("Android")
     }
 }
